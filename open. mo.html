@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For You</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .box {
+            background: #020617;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(59,130,246,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #3b82f6;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #3b82f6;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .warning {
+            color: #f87171;
+        }
+
+        .success {
+            color: #60a5fa;
+        }
+
+        a.next-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #1e40af;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a.next-link:hover {
+            background: #1d4ed8;
+        }
+
+        .note {
+            margin-top: 25px;
+            font-size: 14px;
+            text-align: center;
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Enter Your Name</h2>
+
+    <input type="text" id="nameInput" placeholder="Type your name here...">
+    <button onclick="checkName()">Submit</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="note">
+        <p><b>This letter is only for a certain someone!</b></p>
+        <p><i>Hope this letter will find its way to you even if it's already late</i></p>
+    </div>
+</div>
+
+<script>
+    function checkName() {
+        const name = document.getElementById("nameInput").value.trim().toLowerCase();
+        const result = document.getElementById("result");
+
+        const allowedNames = [
+            "jhyra",
+            "jhyra nicole",
+            "test"
+        ];
+
+        if (allowedNames.includes(name)) {
+            result.innerHTML = `
+                <p class="success">Hi! This letter is for you!</p>
+                <a class="next-link"
+                   href="https://yashiro8899.github.io/hi/para-sayo.html">
+                   Continue
+                </a>
+            `;
+        } else {
+            result.innerHTML = `
+                <p class="warning">Sorry but this letter is not for you!</p>
+            `;
+        }
+    }
+</script>
+
+</body>
+</html>
